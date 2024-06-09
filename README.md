@@ -10,8 +10,6 @@ This project only runs on docker compose for now, so not helm file included.
 
 ### Video walkthrough
 For a more structured walk-through, read the rest of the document.
-<iframe src="https://drive.google.com/file/d/1MCvGBmirgur5TJlaYWamFx9bg_66XQC8/view" width="640" height="480" allow="autoplay"></iframe>
-
 
 Here is a link to the video:
 https://drive.google.com/file/d/1MCvGBmirgur5TJlaYWamFx9bg_66XQC8/view?usp=drive_link
