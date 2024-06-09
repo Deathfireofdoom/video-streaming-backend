@@ -8,7 +8,18 @@ import fs from 'fs';
 
 // this is only for demo purposes
 const uploadCorsConfig = async (bucketName: string) => {
-  const corsConfig = JSON.parse(fs.readFileSync('cors.json', 'utf-8'));
+  const corsConfig = {
+    CORSRules: [
+      {
+        AllowedOrigins: ["*"],
+        AllowedMethods: ["GET", "POST", "PUT", "DELETE", "HEAD"],
+        AllowedHeaders: ["*"],
+        MaxAgeSeconds: 3000,
+        ExposeHeaders: ["x-amz-server-side-encryption", "x-amz-request-id", "x-amz-id-2"]
+      }
+    ]
+  };
+
   const params = {
     Bucket: bucketName,
     CORSConfiguration: corsConfig

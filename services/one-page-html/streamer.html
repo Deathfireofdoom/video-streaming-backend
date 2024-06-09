@@ -48,7 +48,9 @@
     function populateDropdown(videos) {
       videos.forEach(video => {
         const option = document.createElement('option');
-        option.value = video.masterPlaylistUrl;
+        // Replace 'localstack' with 'localhost' in the URL
+        const videoUrl = video.masterPlaylistUrl.replace('localstack', 'localhost');
+        option.value = videoUrl;
         option.textContent = video.originalFilename;
         videoSelect.appendChild(option);
       });
@@ -83,4 +85,4 @@
     fetchCompletedVideos();
   </script>
 </body>
-</html>
+  </html>
