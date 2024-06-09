@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "ecdec920-d5e2-48d4-9bca-d3098eb64ec4",
+		"name": "video-streaming-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13362924"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/health",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload-video",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "video",
+							"type": "file",
+							"src": "/C:/Users/Oskar/Videos/15921892-uhd_3840_2160_50fps.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/video/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"video",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-all-videos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/video",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"video"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-video-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/video/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"video",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "66648bc41d99068cd03953b9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -24,7 +24,7 @@ docker compose up
 ```
 
 
-Import the postman collection, run the `health`-request to make sure its up and running, then initialize localstack with the `init-localstack`-request.
+Import the postman collection, run the `health`-request to make sure its up and running.
 
 
 
