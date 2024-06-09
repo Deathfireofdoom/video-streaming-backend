@@ -7,8 +7,58 @@ services:
     container_name: api_service
     environment:
       - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/video-streaming
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - S3_BUCKET_NAME=videos
+      - AWS_REGION=us-east-1
+      - LOCALSTACK_HOSTNAME=localstack
+      - AWS_ENDPOINT=http://localstack:4566
     ports:
       - "3000:3000"
+    depends_on:
+      - mongo
+      - localstack
+
+  worker:
+    build:
+      context: ./services/worker
+    container_name: worker_service
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/video-streaming
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - S3_BUCKET_NAME=videos
+      - AWS_REGION=us-east-1
+      - LOCALSTACK_HOSTNAME=localstack
+      - AWS_ENDPOINT=http://localstack:4566
+    depends_on:
+      - mongo
+      - localstack
+      - api
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    environment:
+      - SERVICES=s3,sqs
+      - DEBUG=1
+      - DATA_DIR=/var/lib/localstack/data
+    ports:
+      - "4566:4566"  # Edge service port (for all services)
+      - "4571:4571"  # SQS service port
+      - "4572:4572"  # S3 service port
+    volumes:
+      - localstack-data:/var/lib/localstack
 
 volumes:
   mongo-data:
+  localstack-data:
