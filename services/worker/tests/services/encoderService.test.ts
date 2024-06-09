@@ -1,7 +1,6 @@
 import fs from 'fs';
-import path from 'path';
-import { encodeVideo, generateMasterPlaylistContent, getAllGeneratedFiles } from '../../src/services/encoderService';  // Adjust the path as necessary
-import { loadFileFromS3, uploadFileToS3 } from '../../src/services/s3Service';  // Adjust the path as necessary
+import { encodeVideo, generateMasterPlaylistContent } from '../../src/services/encoderService';
+import { loadFileFromS3, uploadFileToS3 } from '../../src/services/s3Service';
 
 jest.mock('fs', () => ({
   promises: {

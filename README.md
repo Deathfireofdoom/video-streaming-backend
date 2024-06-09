@@ -8,7 +8,9 @@ The two main services are complemented with different kinds of technologies, thi
 This project only runs on docker compose for now, so not helm file included.
 
 
-
+### Video walkthrough
+For a more structured walk-through, read the rest of the document.
+<iframe src="https://drive.google.com/file/d/1MCvGBmirgur5TJlaYWamFx9bg_66XQC8/view?usp=sharing" width="640" height="480" allow="autoplay"></iframe>
 
 ### How to get started
 To run this project you need `docker` and `docker-compose` installed.
